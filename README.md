@@ -5,7 +5,8 @@ NIM   : H1D022021
 Shift : C
 
 ## Registrasi
-![Registrasi](image.png)
+![image-9](https://github.com/user-attachments/assets/1908bd0b-ba7b-4fe8-bf12-3fc772cc3171)
+
 
 ## Login
 ![Login](image-1.png)
