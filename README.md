@@ -80,8 +80,6 @@ Jika tidak berhasil login (akun tidak terdaftar atau inputan tidak sesuai), munc
 
 ![Gagal Login](https://github.com/user-attachments/assets/b18491ee-a3fa-48a9-8498-6c4051e1380e)
 
-![image](https://github.com/user-attachments/assets/fd34b41f-7369-4a81-801c-793f7fcaa897)
-
 ## 2. Tambah Data
 Setelah berhasil login, user diarahkan ke halaman Produk (ProdukPage). Pada bagian atas (header) terdapat AppBar dengan title 'List Produk' dan tombol '+' untuk menambahkan produk.
 
