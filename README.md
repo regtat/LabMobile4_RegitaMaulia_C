@@ -6,6 +6,7 @@ Shift : C
 
 ## 1. Proses Login
 ![Halaman Pertama - Login](https://github.com/user-attachments/assets/4fac8523-754a-4816-b1f0-5b460273a3e2)
+
 Jika belum memiliki akun, maka harus registrasi akun dengan klik 'Registrasi'
 ## a. Registrasi
 Pada halaman Registrasi fungsinya untuk membuat akun. Halaman ini menggunakan StatefulWidget yang mendukung penyimpanan informasi (inputan user) serta validasi. TextFormField untuk memasukkan nama, email, password, dan konfirmasi password seperti berikut. 
