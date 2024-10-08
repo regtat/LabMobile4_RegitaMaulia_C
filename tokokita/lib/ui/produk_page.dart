@@ -1,27 +1,27 @@
-import 'package:flutter/material.dart'; 
-import 'package:tokokita/bloc/logout_bloc.dart'; 
-import 'package:tokokita/bloc/produk_bloc.dart'; 
-import 'package:tokokita/model/produk.dart'; 
-import 'package:tokokita/ui/login_page.dart'; 
-import 'package:tokokita/ui/produk_detail.dart'; 
-import 'package:tokokita/ui/produk_form.dart'; 
- 
-class ProdukPage extends StatefulWidget { 
-  const ProdukPage({Key? key}) : super(key: key); 
- 
-  @override 
+import 'package:flutter/material.dart';
+import 'package:tokokita/bloc/logout_bloc.dart';
+import 'package:tokokita/bloc/produk_bloc.dart';
+import 'package:tokokita/model/produk.dart';
+import 'package:tokokita/ui/login_page.dart';
+import 'package:tokokita/ui/produk_detail.dart';
+import 'package:tokokita/ui/produk_form.dart';
+
+class ProdukPage extends StatefulWidget {
+  const ProdukPage({Key? key}) : super(key: key);
+
+  @override
   _ProdukPageState createState() => _ProdukPageState();
 }
-class _ProdukPageState extends State<ProdukPage> { 
-  @override 
-  Widget build(BuildContext context) { 
-    return Scaffold( 
-      appBar: AppBar( 
+class _ProdukPageState extends State<ProdukPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
         title: const Text('List Produk'),
         backgroundColor: const Color.fromARGB(255, 141, 181, 249),
         actions: [
           Padding(
-              padding: const EdgeInsets.only(right: 20.0),
+              padding: const EdgeInsets.only(right: 20),
               child: GestureDetector(
                 child: const Icon(Icons.add, size: 26.0),
                 onTap: () async{
@@ -94,11 +94,15 @@ class ItemProduk extends StatelessWidget {
                       produk: produk,
                     )));
       },
+      child: Padding(
+        padding: const EdgeInsets.all(5), //padding antar card
       child: Card(
+        color: const Color.fromARGB(255, 199, 220, 255),
         child: ListTile(
           title: Text(produk.namaProduk!),
           subtitle: Text(produk.hargaProduk.toString()),
         ),
+      ),
       ),
     );
   }

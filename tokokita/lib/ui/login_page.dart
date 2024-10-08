@@ -25,16 +25,22 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Form(
             key: _formKey,
             child: Column(
               children: [
                 _emailTextField(),
+                const SizedBox(
+                  height: 7,
+                ),
                 _passwordTextField(),
+                const SizedBox(
+                  height: 15,
+                ),
                 _buttonLogin(),
                 const SizedBox(
-                  height: 30,
+                  height: 17,
                 ),
                 _menuRegistrasi()
               ],
@@ -82,6 +88,10 @@ class _LoginPageState extends State<LoginPage> {
   //Membuat Tombol Login
   Widget _buttonLogin() {
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+      backgroundColor:const Color.fromARGB(255, 199, 220, 255),
+      foregroundColor: Colors.black,
+    ),
         child: const Text("Login"),
         onPressed: () {
           var validate = _formKey.currentState!.validate();
@@ -89,9 +99,7 @@ class _LoginPageState extends State<LoginPage> {
             if (!_isLoading) _submit();
           }
         },
-        style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.blueAccent,
-        ),);
+        );
   }
 
   void _submit() {

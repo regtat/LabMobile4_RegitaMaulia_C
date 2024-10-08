@@ -4,11 +4,10 @@ import 'package:tokokita/model/produk.dart';
 import 'package:tokokita/ui/produk_page.dart';
 import 'package:tokokita/widget/warning_dialog.dart';
 
+// ignore: must_be_immutable
 class ProdukForm extends StatefulWidget {
   Produk? produk;
-
   ProdukForm({Key? key, this.produk}) : super(key: key);
-
   @override
   _ProdukFormState createState() => _ProdukFormState();
 }
@@ -18,11 +17,9 @@ class _ProdukFormState extends State<ProdukForm> {
   bool _isLoading = false;
   String judul = "TAMBAH PRODUK";
   String tombolSubmit = "SIMPAN";
-
   final _kodeProdukTextboxController = TextEditingController();
   final _namaProdukTextboxController = TextEditingController();
   final _hargaProdukTextboxController = TextEditingController();
-
   @override
   void initState() {
     super.initState();
@@ -40,7 +37,7 @@ class _ProdukFormState extends State<ProdukForm> {
             widget.produk!.hargaProduk.toString();
       });
     } else {
-      judul = "TAMBAH PRODUK EMMA";
+      judul = "TAMBAH PRODUK";
       tombolSubmit = "SIMPAN";
     }
   }
@@ -54,29 +51,28 @@ class _ProdukFormState extends State<ProdukForm> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0), // Padding yang lebih besar
-          child: Card(
-            // Menambahkan Card untuk membungkus form
-            elevation: 4, // Menambahkan bayangan pada Card
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10), // Sudut melengkung
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0), // Padding di dalam Card
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    _kodeProdukTextField(),
-                    const SizedBox(height: 16), // Jarak antar elemen
-                    _namaProdukTextField(),
-                    const SizedBox(height: 16), // Jarak antar elemen
-                    _hargaProdukTextField(),
-                    const SizedBox(height: 24), // Jarak atas tombol
-                    _buttonSubmit(),
-                  ],
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
+                _kodeProdukTextField(),
+                const SizedBox(
+                  height: 10,
+                ),
+                _namaProdukTextField(),
+                const SizedBox(
+                  height: 10,
+                ),
+                _hargaProdukTextField(),
+                const SizedBox(
+                  height: 15,
+                ),
+                _buttonSubmit()
+              ],
             ),
           ),
         ),
@@ -84,10 +80,19 @@ class _ProdukFormState extends State<ProdukForm> {
     );
   }
 
-  // Membuat Textbox Kode Produk
+//Membuat Textbox Kode Produk
   Widget _kodeProdukTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: "Kode Produk"),
+      decoration: const InputDecoration(
+        labelText: "Kode Produk",
+        labelStyle: TextStyle(color: Colors.black), // Warna label hitam
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black), // Warna border hitam
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black), // Warna saat fokus
+        ),
+      ),
       keyboardType: TextInputType.text,
       controller: _kodeProdukTextboxController,
       validator: (value) {
@@ -99,10 +104,19 @@ class _ProdukFormState extends State<ProdukForm> {
     );
   }
 
-  // Membuat Textbox Nama Produk
+//Membuat Textbox Nama Produk
   Widget _namaProdukTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: "Nama Produk"),
+      decoration: const InputDecoration(
+        labelText: "Nama Produk",
+        labelStyle: TextStyle(color: Colors.black), // Warna label hitam
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black), // Warna border hitam
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black), // Warna saat fokus
+        ),
+      ),
       keyboardType: TextInputType.text,
       controller: _namaProdukTextboxController,
       validator: (value) {
@@ -114,10 +128,19 @@ class _ProdukFormState extends State<ProdukForm> {
     );
   }
 
-  // Membuat Textbox Harga Produk
+//Membuat Textbox Harga Produk
   Widget _hargaProdukTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: "Harga"),
+      decoration: const InputDecoration(
+        labelText: "Harga",
+        labelStyle: TextStyle(color: Colors.black),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black),
+        ),
+      ),
       keyboardType: TextInputType.number,
       controller: _hargaProdukTextboxController,
       validator: (value) {
@@ -129,27 +152,28 @@ class _ProdukFormState extends State<ProdukForm> {
     );
   }
 
-  // Membuat Tombol Simpan/Ubah
   Widget _buttonSubmit() {
-    return OutlinedButton(
-        child: Text(tombolSubmit),
-        onPressed: () {
-          var validate = _formKey.currentState!.validate();
-          if (validate) {
-            if (!_isLoading) {
-              if (widget.produk != null) {
-                //kondisi update produk
-                ubah();
-              } else {
-//kondisi tambah produk
-                simpan();
-              }
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color.fromARGB(255, 141, 181, 249),
+        foregroundColor: Colors.black,
+      ),
+      child: Text(tombolSubmit),
+      onPressed: () {
+        var validate = _formKey.currentState!.validate();
+        if (validate) {
+          if (!_isLoading) {
+            if (widget.produk != null) {
+              ubah(); // kondisi update produk
+            } else {
+              simpan(); // kondisi tambah produk
             }
           }
-        });
+        }
+      },
+    );
   }
 
-  // Fungsi untuk menyimpan produk baru
   simpan() {
     setState(() {
       _isLoading = true;
@@ -173,7 +197,6 @@ class _ProdukFormState extends State<ProdukForm> {
     });
   }
 
-  // Fungsi untuk mengubah produk
   ubah() {
     setState(() {
       _isLoading = true;

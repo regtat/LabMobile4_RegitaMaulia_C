@@ -32,9 +32,21 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _namaTextField(),
+                const SizedBox(
+                  height: 7,
+                ),
                 _emailTextField(),
+                const SizedBox(
+                  height: 7,
+                ),
                 _passwordTextField(),
+                const SizedBox(
+                  height: 7,
+                ),
                 _passwordKonfirmasiTextField(),
+                const SizedBox(
+                  height: 20,
+                ),
                 _buttonRegistrasi()
               ],
             ),
@@ -119,6 +131,10 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
   //Membuat Tombol Registrasi
   Widget _buttonRegistrasi() {
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+      backgroundColor:const Color.fromARGB(255, 199, 220, 255),
+      foregroundColor: Colors.black,
+    ),
         child: const Text("Registrasi"),
         onPressed: () {
           var validate = _formKey.currentState!.validate();
