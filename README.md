@@ -16,6 +16,7 @@ Tiap field terdapat validasi agar memenuhi kriteria tertentu seperti berikut:
 ![Validasi inputan user](https://github.com/user-attachments/assets/02d69665-2a92-448b-8ad6-6c170320e0f8)
 
 Ketika user klik tombol registrasi, method _submit() memvalidasi inputan user berikut. Jika valid, data akan dikirim ke backend melalui RegistrasiBloc.registrasi()
+
 ![Input Usn & Pwd](https://github.com/user-attachments/assets/4b1ed238-5a5c-428f-9df3-88fdd7f21bd3)
 ## b. PopUP
 Jika registrasi berhasil, PopUp Sukses akan muncul seperti berikut:
